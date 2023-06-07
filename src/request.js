@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const request = axios.create({
-  baseURL: "http://localhost:8000/api/",
+  baseURL: "https://ghosttalk.pythonanywhere.com/api/",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",

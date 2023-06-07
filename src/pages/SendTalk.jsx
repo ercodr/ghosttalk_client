@@ -9,6 +9,7 @@ const SendTalk = () => {
   const { username } = useParams();
   const [statusMsg, setStatusMsg] = useState("");
   const [charCount, setCharCount] = useState(maxLength);
+  const [msg, setMsg] = useState("");
 
   const responseHandler = (e) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const SendTalk = () => {
       })
       .then((res) => {
         if (res.status === 200) {
+          setMsg("")
           setStatusMsg(() => res.data.status);
           dismissStatus();
         }
@@ -40,13 +42,14 @@ const SendTalk = () => {
         className="transition-transform duration-[5s] bg-white shadow-2xl w-full md:max-w-md flex flex-col gap-4 items-center rounded-lg p-8 text-slate-500"
       >
         <h3 className="text-2xl font-bold text-white bg-slate-600 w-full text-center p-2 rounded">
-          GhostTalk me something!
+          GhostTalk Me!
         </h3>
         <div className="space-y-4 flex flex-col w-full [&>*]:px-4 [&>*]:py-2 [&>*]:border-">
           <label>Say Something About Me</label>
           <textarea
             onChange={(e) => {
               setCharCount(() => maxLength - e.target.value.length);
+              setMsg(() => e.target.value)
             }}
             maxLength={maxLength}
             cols="30"
@@ -55,6 +58,7 @@ const SendTalk = () => {
             placeholder="Leave a message for me"
             className="appearance-none border-b-2 outline-none rounded"
             required
+            value={msg}
           ></textarea>
           <div
             className={`text-sm ${
