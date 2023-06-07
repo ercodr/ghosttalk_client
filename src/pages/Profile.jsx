@@ -13,7 +13,7 @@ const Profile = () => {
 
   const copyToClipboard = (e) => {
     const link = e.target.innerText;
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText("Got something to tell me, but don't know how to face me? Tell me now I won't know who said it\n" + link);
     alert("Profile link copied!");
   };
 
