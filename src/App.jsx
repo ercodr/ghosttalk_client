@@ -8,12 +8,26 @@ import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RequireAuth } from "react-auth-kit";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registered: ', registration);
+          })
+          .catch((error) => {
+            console.log('Service Worker registration failed: ', error);
+          });
+      });
+    }
+  }, [])
 
   return (
     <div>
