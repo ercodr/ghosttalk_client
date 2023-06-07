@@ -23,10 +23,11 @@ const SendTalk = () => {
       .then((res) => {
         if (res.status === 200) {
           setMsg("")
+          setCharCount(() => maxLength)
           setStatusMsg(() => res.data.status);
           dismissStatus();
         }
-      });
+      }).catch(err => console.log(err));
 
     const dismissStatus = () => {
       setTimeout(() => {
