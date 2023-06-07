@@ -1,0 +1,42 @@
+{
+    "name": "GhostTalk",
+    "short_name": "GhostTalk",
+    "description": "Our web app allows you to share and receive honest feedback from your friends without revealing your identity. With our anonymous feedback feature, you can provide constructive criticism, praise, or any thoughts you have in a safe and secure environment.",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#0f172a",
+    "background_color": "#ffffff",
+    "icons": [ 
+      {
+        "src": "logo.ico",
+        "sizes": "24x24",
+        "type": "image/ico"
+      },
+      {
+        "src": "logo.ico",
+        "sizes": "32x32",
+        "type": "image/ico"
+      },
+      {
+        "src": "logo.ico",
+        "sizes": "48x48",
+        "type": "image/ico"
+      },
+      {
+        "src": "logo.ico",
+        "sizes": "96x96",
+        "type": "image/ico"
+      },
+      {
+        "src": "logo.ico",
+        "sizes": "128x128",
+        "type": "image/ico"
+      },
+      {
+        "src": "logo.ico",
+        "sizes": "192x192",
+        "type": "image/ico"
+      }
+    ]
+  }
+  

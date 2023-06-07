@@ -13,7 +13,7 @@ const Hero = () => {
             Share your innermost desires with your family and friends.
           </h1>
           <p className="my-6">
-            Our web app allows you to share your honest feedback with your
+            Our web app allows you to share and receive honest feedback from your
             friends without revealing your identity. With our anonymous feedback
             feature, you can provide constructive criticism, praise, or any
             thoughts you have in a safe and secure environment.
