@@ -9,7 +9,7 @@ const Profile = () => {
   const [profileResponse, setProfileResponse] = useState({});
   const [reslen, setReslen] = useState(0);
   const navigate = useNavigate();
-  const user = sessionStorage.getItem("user");
+  const user = localStorage.getItem("user");
 
   const copyToClipboard = (e) => {
     const link = e.target.innerText;

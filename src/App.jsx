@@ -28,6 +28,7 @@ const App = () => {
   }, []);
 
   const handleInstallClick = () => {
+    alert("Please wait as your app is being installed...")
     if (deferredPrompt) {
       // Show the installation prompt
       deferredPrompt.prompt();

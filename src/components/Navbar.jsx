@@ -9,7 +9,7 @@ const Navbar = ( {installHandler} ) => {
   const [scrolled, setScrolled] = useState(false);
   // const { loggedIn, setLoggedIn } = useContext(LoginContext);
   const { user, setUser } = useContext(UserContext);
-  const username = sessionStorage.getItem("user");
+  const username = localStorage.getItem("user");
   const signOut = useSignOut();
 
   // add event listener to window to track when user scrolls
@@ -38,6 +38,7 @@ const Navbar = ( {installHandler} ) => {
         <Link to="/" className="font-bold text-2xl">
           GhostTalk
         </Link>
+        
         <ul className="md:flex items-center gap-4 hidden">
           <li>
             <Link to="/">Home</Link>
@@ -74,7 +75,7 @@ const Navbar = ( {installHandler} ) => {
 
                 <Dropdown.Item
                   onClick={() => {
-                    sessionStorage.removeItem("user");
+                    localStorage.removeItem("user");
                     signOut();
                   }}
                   className="text-slate-900 hover:bg-slate-200"
@@ -108,6 +109,9 @@ const Navbar = ( {installHandler} ) => {
                 Register
               </Dropdown.Item>
             </Link>
+              <Dropdown.Item className="text-slate-100 hover:bg-slate-200 m-2 bg-blue-500 rounded-lg">
+                  <button onClick={installHandler}>Install</button>
+              </Dropdown.Item>
           </Dropdown>
         </div>
       </div>
