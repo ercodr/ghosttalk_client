@@ -35,7 +35,7 @@ const Login = () => {
           })
         ) {
           // setUser(formData.username.value);
-          sessionStorage.setItem("user", formData.username.value);
+          localStorage.setItem("user", formData.username.value);
           navigate(`/profile/${formData.username.value}/`);
         }
       })

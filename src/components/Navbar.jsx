@@ -5,7 +5,7 @@ import { LoginContext, UserContext } from "./Context";
 import request from "../request";
 import { useSignOut } from "react-auth-kit";
 
-const Navbar = () => {
+const Navbar = ( {installHandler} ) => {
   const [scrolled, setScrolled] = useState(false);
   // const { loggedIn, setLoggedIn } = useContext(LoginContext);
   const { user, setUser } = useContext(UserContext);
@@ -44,6 +44,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <button onClick={installHandler}>Install</button>
           </li>
           {!username ? (
             <li>

@@ -14,24 +14,39 @@ import { RequireAuth } from "react-auth-kit";
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then((registration) => {
-            console.log('Service Worker registered: ', registration);
-          })
-          .catch((error) => {
-            console.log('Service Worker registration failed: ', error);
-          });
+      window.addEventListener('beforeinstallprompt', (event) => {
+        // Prevent the default installation prompt
+        event.preventDefault();
+        // Store the event for later use
+        setDeferredPrompt(event);
       });
     }
-  }, [])
+  }, []);
+
+  const handleInstallClick = () => {
+    if (deferredPrompt) {
+      // Show the installation prompt
+      deferredPrompt.prompt();
+      // Wait for the user's choice
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the installation prompt');
+        } else {
+          console.log('User dismissed the installation prompt');
+        }
+        // Reset the deferred prompt state
+        setDeferredPrompt(null);
+      });
+    }
+  };
 
   return (
     <div>
-      <Navbar />
+      <Navbar installHandler={handleInstallClick}/>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/404" element={<NotFound />} />
