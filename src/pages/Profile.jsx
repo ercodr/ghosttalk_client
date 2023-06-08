@@ -49,7 +49,7 @@ const Profile = () => {
             <a
               onClick={(e) => copyToClipboard(e)}
               // ref={urlRef}
-              className="truncate w-[full] text-xs"
+              className="truncate w-[full] text-xs m-2"
             >
               {`${window.location.origin}/${profile_user}`}
             </a>
