@@ -12,24 +12,44 @@ import { useEffect, useState } from "react";
 import { RequireAuth } from "react-auth-kit";
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const [user, setUser] = useState("");
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
+
   useEffect(() => {
+
     if ('serviceWorker' in navigator) {
-      window.addEventListener('beforeinstallprompt', (event) => {
-        // Prevent the default installation prompt
-        event.preventDefault();
-        // Store the event for later use
-        setDeferredPrompt(event);
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered: ', registration);
+          })
+          .catch(error => {
+            console.log('Service Worker registration failed: ', error);
+          });
       });
     }
+    
+    const handleBeforeInstallPrompt = (event) => {
+      // Prevent the default installation prompt
+      event.preventDefault();
+      // Store the event for later use
+      setDeferredPrompt(event);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      // Clean up the event listener when the component unmounts
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
   }, []);
 
   const handleInstallClick = () => {
-    alert("Please wait as your app is being installed...")
     if (deferredPrompt) {
+      alert("Please wait as your app is being installed...");
       // Show the installation prompt
       deferredPrompt.prompt();
       // Wait for the user's choice
@@ -42,6 +62,8 @@ const App = () => {
         // Reset the deferred prompt state
         setDeferredPrompt(null);
       });
+    } else {
+      alert("Installation prompt not available\nTry again using Google Chrome");
     }
   };
 
