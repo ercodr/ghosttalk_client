@@ -28,7 +28,7 @@ const HowItWorks = () => {
 
             <div className="flex flex-wrap gap-4 justify-center container mx-auto mt-8">
                 {
-                    images.map(image => <img src={image} alt="" key={image} className="lg:hover:scale-150 w-full md:w-48 select-none transition-all rounded-3xl border-8 border-spacing-8 border-slate-900 shadow-lg"/>)
+                    images.map(image => <img src={image} alt="Image" width={"auto"} height={"auto"} key={image} className="lg:hover:scale-150 w-full md:w-48 select-none transition-all rounded-3xl border-8 border-spacing-8 border-slate-900 shadow-lg"/>)
                 }
             </div>
         </section>

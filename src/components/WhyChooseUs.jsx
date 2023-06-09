@@ -38,9 +38,9 @@ const WhyChooseUs = () => {
       id="get_started"
       className="container mx-auto flex flex-col items-center p-4 md:p-12"
     >
-      <h3 className="md:text-3xl text-2xl font-bold mt-8 md:mt-12 text-center">
+      <h2 className="md:text-3xl text-2xl font-bold mt-8 md:mt-12 text-center">
         Why Choose GhostTalk
-      </h3>
+      </h2>
       <p className="text-center mt-4">
         Our Anonymous Messaging App comes along with many great features.{" "}
         <br className="hidden lg:block" /> Here we are going to list some of
