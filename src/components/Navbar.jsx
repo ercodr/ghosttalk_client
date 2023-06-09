@@ -12,7 +12,7 @@ const Navbar = ( {installHandler} ) => {
   const username = localStorage.getItem("user");
   const signOut = useSignOut();
 
-  // add event listener to window to track when user scrolls
+
   useEffect(() => {
     function handleScroll() {
       if (window.pageYOffset > 10) {
