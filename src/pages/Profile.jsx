@@ -15,6 +15,7 @@ const Profile = () => {
     const link = e.target.innerText;
     navigator.clipboard.writeText("Got something to tell me, but don't know how to face me? Tell me now I won't know who said it\n" + link);
     alert("Profile link copied!");
+    alert("ℹ Share this link with family and friends to receive anonymous feedbacks from them")
   };
 
   useEffect(() => {
@@ -45,8 +46,9 @@ const Profile = () => {
             {"'s "}
             profile
           </h3>
+    
           <div className="cursor-pointer flex items-center justify-center gap-4 bg-slate-100 px-2 py-1 rounded w-max mx-auto mt-2">
-            <a
+            <a title="ℹ Share this link with friends and family to receive anonymous feedbacks from them"
               onClick={(e) => copyToClipboard(e)}
               // ref={urlRef}
               className="truncate w-48 md:w-full text-xs m-2"
@@ -59,7 +61,7 @@ const Profile = () => {
               className="text-2xl hover:text-red-500 md:cursor-pointer"
             /> */}
           </div>
-          <span className="text-xs text-slate-400">Tap the link to copy</span>
+          <span className="text-xs text-slate-400">Tap the link to copy & share</span>
         </section>
         <section className="bg-white shadow-lg p-2 md:p-8 rounded-lg">
           {/* <input
