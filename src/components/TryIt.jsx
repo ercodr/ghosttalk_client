@@ -9,13 +9,9 @@ const TryIt = () => {
           Try GhostTalk Today!
         </h3>
         <p className="text-center mt-4">
-          GhostTalk is easy to use, and fun to play with! Simply visit our
-          website and get started with GhostTalk now.
-          <br className="hidden lg:block" /> After you visit the site, easily
-          create your account and share the profile link with friends to get
-          going.
-          <br className="hidden lg:block" /> Receive anonymous messages from
-          friends and family online!
+          Experience the user-friendly and enjoyable GhostTalk platform! Embark on your GhostTalk journey by accessing our website effortlessly. 
+          <br className="hidden lg:block"/> Take the first step by creating an account, and don't forget to share your unique profile link with friends to commence the excitement. 
+          <br className="hidden lg:block"/> Immerse yourself in a world of anonymous online messages from your loved ones.
         </p>
         <Link to="/register">
           <button className="bg-white px-8 py-2 rounded transition-all mt-8 shadow text-slate-900 font-medium border hover:text-white hover:bg-transparent">

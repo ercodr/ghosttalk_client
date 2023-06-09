@@ -10,10 +10,10 @@ const Hero = () => {
       <div className="container mx-auto grid md:grid-cols-2 items-center p-4 py-12">
         <div className="text-slate-100">
           <h1 className="lg:text-6xl font-bold text-3xl">
-            Share your innermost desires with your family and friends.
+            Share and recieve innermost desires from your family and friends.
           </h1>
           <p className="my-6">
-            Our web app allows you to share and receive honest feedback from your
+            Our web app allows you to share your profile link and receive honest feedback from your
             friends without revealing your identity. With our anonymous feedback
             feature, you can provide constructive criticism, praise, or any
             thoughts you have in a safe and secure environment.
