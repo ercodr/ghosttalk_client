@@ -22,7 +22,7 @@ const HowItWorks = () => {
                     create your account and share the profile link with friends to get
                     going.
                 <br className="hidden lg:block" /> 
-                    Receive anonymous messages from friends and family online!
+                    Receive anonymous messages from friends and family online today!
                 </p>
             </div>
 
