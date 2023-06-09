@@ -6,7 +6,7 @@ const Footer = () => {
         <span>
             Copyright © 2023 - GhostTalk
         </span>
-        <span className='text-base text-slate-500'>
+        <span className='text-base text-slate-200'>
             Powered By TechCrony
         </span>
     </footer>
