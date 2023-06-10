@@ -16,6 +16,7 @@ const App = () => {
   // const [user, setUser] = useState("");
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
+  navigator.setAppBadge(5)
 
   useEffect(() => {
 
