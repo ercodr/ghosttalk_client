@@ -1,21 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { LoginContext, UserContext } from "./Context";
-import request from "../request";
 import { useSignOut } from "react-auth-kit";
+import PropTypes from "prop-types";
 
-const Navbar = ( {installHandler} ) => {
+
+const Navbar = ({ installHandler }) => {
   const [scrolled, setScrolled] = useState(false);
-  // const { loggedIn, setLoggedIn } = useContext(LoginContext);
-  const { user, setUser } = useContext(UserContext);
   const username = localStorage.getItem("user");
   const signOut = useSignOut();
 
-
   useEffect(() => {
     function handleScroll() {
-      if (window.pageYOffset > 10) {
+      if (window.scrollY > 10) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -26,6 +23,7 @@ const Navbar = ( {installHandler} ) => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={`p-4 text-slate-100 fixed z-10 w-full transition-all duration-500 ${
@@ -38,7 +36,7 @@ const Navbar = ( {installHandler} ) => {
         <Link to="/" className="font-bold text-2xl">
           GhostTalk
         </Link>
-        
+
         <ul className="md:flex items-center gap-4 hidden">
           <li>
             <Link to="/">Home</Link>
@@ -52,27 +50,26 @@ const Navbar = ( {installHandler} ) => {
           {!username ? (
             <li>
               <Dropdown label="Join Us" inline={true} dismissOnClick={true}>
-                <Link to="/login">
-                  <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
+                <Dropdown.Item>
+                  <Link to="/login" className="text-slate-900 hover:bg-slate-200">
                     Login
-                  </Dropdown.Item>
-                </Link>
-                <Link to="/register">
-                  <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="/register" className="text-slate-900 hover:bg-slate-200">
                     Register
-                  </Dropdown.Item>
-                </Link>
+                  </Link>
+                </Dropdown.Item>
               </Dropdown>
             </li>
           ) : (
             <li>
               <Dropdown label={username} inline={true} dismissOnClick={true}>
-                <Link to={`/profile/${username}`}>
-                  <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
+                <Dropdown.Item>
+                  <Link to={`/profile/${username}`} className="text-slate-900 hover:bg-slate-200">
                     Profile
-                  </Dropdown.Item>
-                </Link>
-
+                  </Link>
+                </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => {
                     localStorage.removeItem("user");
@@ -87,36 +84,31 @@ const Navbar = ( {installHandler} ) => {
           )}
         </ul>
         <div className="md:hidden flex items-center">
-          {/* <BiMenuAltRight /> */}
           <Dropdown label="Menu" inline={true} dismissOnClick={true}>
-            <Link to="/">
-              <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
+            <Dropdown.Item>
+              <Link to="/" className="text-slate-900 hover:bg-slate-200">
                 Home
-              </Dropdown.Item>
-            </Link>
-            <Link to="/contact">
-              <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/contact" className="text-slate-900 hover:bg-slate-200">
                 Contact
-              </Dropdown.Item>
-            </Link>
-            <Link to="/login">
-              <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
-                Login
-              </Dropdown.Item>
-            </Link>
-            <Link to="/register">
-              <Dropdown.Item className="text-slate-900 hover:bg-slate-200">
-                Register
-              </Dropdown.Item>
-            </Link>
-              <Dropdown.Item className="text-slate-100 hover:bg-slate-200 m-2 bg-blue-500 rounded-lg">
-                  <button onClick={installHandler}>Install</button>
-              </Dropdown.Item>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <button onClick={installHandler} className="text-slate-100 hover:bg-slate-200 m-2 bg-blue-500 rounded-lg">
+                Install
+              </button>
+            </Dropdown.Item>
           </Dropdown>
         </div>
       </div>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  installHandler: PropTypes.func.isRequired,
 };
 
 export default Navbar;

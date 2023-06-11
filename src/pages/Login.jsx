@@ -1,8 +1,7 @@
 import avatar from "../assets/avatar.svg";
 import { Link, useNavigate } from "react-router-dom";
 import request from "../request";
-import { useContext, useRef, useState } from "react";
-import { LoginContext, UserContext } from "../components/Context";
+import { useRef, useState } from "react";
 import { useSignIn } from "react-auth-kit";
 
 const Login = () => {
@@ -11,9 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const [msg, setMsg] = useState("");
   const [error, setError] = useState(false);
-
-  // const { setLoggedIn } = useContext(LoginContext);
-  const { setUser } = useContext(UserContext);
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -34,14 +30,16 @@ const Login = () => {
             refreshToken: res.data.refresh,
           })
         ) {
-          // setUser(formData.username.value);
           localStorage.setItem("user", formData.username.value);
           navigate(`/profile/${formData.username.value}/`);
         }
       })
-
       .catch((err) => {
-        setMsg(() => err.response.data.detail);
+        if (err.response) {
+          setMsg(() => err.response.data.detail);
+        } else {
+          setMsg("An error occurred. Please try again later.");
+        }
         setError(() => true);
         dismissStatus();
       });
@@ -71,18 +69,18 @@ const Login = () => {
           <img src={avatar} className="w-20" alt="" />
         </div>
         <h3 className="text-xl font-medium text-slate-500">Login</h3>
-        <div className="[&>*]:appearance-none flex flex-col gap-4 [&>*]:rounded [&>*]:outline-none w-full">
+        <div className="[&gt;*]:appearance-none flex flex-col gap-4 [&gt;*]:rounded [&gt;*]:outline-none w-full">
           <input
             required
             name="username"
-            className=" px-4 py-2 bg-slate-100"
+            className="px-4 py-2 bg-slate-100"
             type="text"
             placeholder="Enter your username"
           />
           <input
             required
             name="password"
-            className=" px-4 py-2 bg-slate-100"
+            className="px-4 py-2 bg-slate-100"
             type="password"
             placeholder="Enter your password"
           />
@@ -92,7 +90,7 @@ const Login = () => {
           <div className="flex flex-col text-sm gap-2">
             <a href="">Forgot password?</a>
             <div>
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link to="/register" className="font-medium">
                 Register
               </Link>

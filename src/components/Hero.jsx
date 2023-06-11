@@ -1,4 +1,3 @@
-import React from "react";
 import HeroLogo from "../assets/hero.svg";
 
 const Hero = () => {

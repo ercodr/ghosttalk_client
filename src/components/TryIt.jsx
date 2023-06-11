@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const TryIt = () => {
@@ -10,7 +9,7 @@ const TryIt = () => {
         </h3>
         <p className="text-center mt-4">
           Experience the user-friendly and enjoyable GhostTalk platform! Embark on your GhostTalk journey by accessing our website effortlessly. 
-          <br className="hidden lg:block"/> Take the first step by creating an account, and don't forget to share your unique profile link with friends to commence the excitement. 
+          <br className="hidden lg:block"/> Take the first step by creating an account, and don&apos;t forget to share your unique profile link with friends to commence the excitement. 
           <br className="hidden lg:block"/> Immerse yourself in a world of anonymous online messages from your loved ones.
         </p>
         <Link to="/register">

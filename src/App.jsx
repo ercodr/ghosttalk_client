@@ -3,7 +3,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SendTalk from "./pages/SendTalk";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -12,11 +12,7 @@ import { useEffect, useState } from "react";
 import { RequireAuth } from "react-auth-kit";
 
 const App = () => {
-  // const [loggedIn, setLoggedIn] = useState(false);
-  // const [user, setUser] = useState("");
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-
-  navigator.setAppBadge(5)
 
   useEffect(() => {
 

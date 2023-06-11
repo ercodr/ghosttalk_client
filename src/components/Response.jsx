@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const Response = ({ message }) => {
   return (
@@ -8,6 +8,13 @@ const Response = ({ message }) => {
       <p className="text-sm mt-4 text-slate-400">{message.created}</p>
     </li>
   );
+};
+
+Response.propTypes = {
+  message: PropTypes.shape({
+    content: PropTypes.string.isRequired,
+    created: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Response;

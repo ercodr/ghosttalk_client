@@ -1,4 +1,3 @@
-import React from "react";
 import { MdSecurity, MdSupportAgent } from "react-icons/md";
 import { FaUserSecret } from "react-icons/fa";
 import { CgMouse } from "react-icons/cg";
