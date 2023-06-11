@@ -4,7 +4,6 @@
   "description": "Our web app allows you to share and receive honest feedback from your friends without revealing their identity. With our anonymous feedback feature, you can provide constructive criticism, praise, or any thoughts you have in a safe and secure environment.",
   "start_url": "/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay"],
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "icons": [
