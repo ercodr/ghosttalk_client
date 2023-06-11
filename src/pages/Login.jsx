@@ -39,6 +39,7 @@ const Login = () => {
           navigate(`/profile/${formData.username.value}/`);
         }
       })
+
       .catch((err) => {
         setMsg(() => err.response.data.detail);
         setError(() => true);

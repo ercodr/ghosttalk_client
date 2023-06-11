@@ -94,7 +94,7 @@ const Profile = () => {
           </span>
           <div
             onClick={() => socialShare(profile_user)}
-            className="bg-gradient-to-br from-[#BB33C2] to-blue-500 text-lg flex justify-center items-center gap-2 font-medium text-center mt-6 cursor-pointer text-white rounded-full py-1 px-4 shadow-lg w-fit mx-auto"
+            className="bg-gradient-to-br from-[#BB33C2] to-blue-500 text-lg flex justify-center items-center gap-2 font-medium text-center mt-6 cursor-pointer text-white rounded-full py-1 px-4 shadow-lg w-fit mx-auto hover:scale-[1.05] active:scale-[0.95]"
           >
             Share <RiShareFill />
           </div>
